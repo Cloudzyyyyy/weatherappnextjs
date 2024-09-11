@@ -1,6 +1,7 @@
 "use client";
 import { useGlobalContext } from "@/app/context/globalContext";
 import { clearSky, cloudy, drizzleIcon, rain, snow } from "@/app/utils/Icons";
+import { kelvinToCelsius } from "@/app/utils/misc";
 import {
   Carousel,
   CarouselContent,
@@ -56,7 +57,9 @@ function DailyForecast() {
     <div className="pt-6 px-4 h-[12rem] border rounded-lg flex flex-col gap-8 dark:bg-dark-grey shadow-sm dark:shadow-none  col-span-full sm-2:col-span-2 xl:col-span-2 md:col-span-2">
       <div className="h-full flex gap-10 overflow-hidden">
         {todaysForecast.length < 1 ? (
-          <div>Loading...</div>
+          <h1 className="text-[3rem] line-through text-rose-500">
+            No Data Available!
+          </h1>
         ) : (
           <div className="w-full">
             <Carousel>
@@ -66,10 +69,14 @@ function DailyForecast() {
                     return (
                       <CarouselItem
                         key={forecast.dt_txt}
-                        className="flex flex-col gap-4 cursor-grab"
+                        className="flex flex-col gap-4 basis[8.5rem] cursor-grab"
                       >
                         <p className="text-gray-300">
                           {moment(forecast.dt_txt).format("HH:mm")}
+                        </p>
+                        <p>{getIcons()}</p>
+                        <p className="mt-4">
+                          {kelvinToCelsius(forecast.main.temp)}°C
                         </p>
                       </CarouselItem>
                     );

@@ -33,7 +33,7 @@ const AirPollution = () => {
         {thermo}Air Pollution
       </h2>
       <Progress value={airQualityIndex} max={100} className="progress" />
-      <p>Air Quality is {filteredIndex?.description}.</p>
+      <p className="text-sm">Air Quality is {filteredIndex?.description}.</p>
     </div>
   );
 };

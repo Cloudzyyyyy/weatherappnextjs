@@ -11,12 +11,13 @@ import {
 } from "@/app/utils/Icons";
 import { kelvinToCelsius } from "@/app/utils/misc";
 import moment from "moment";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const Temperature = () => {
   const { forecast } = useGlobalContext();
   const { main, timezone, name, weather } = forecast;
   if (!forecast || !weather) {
-    return <div>Loading...</div>;
+    return <Skeleton className="h-[12rem] w-full" />;
   }
 
   const temp = kelvinToCelsius(main?.temp);

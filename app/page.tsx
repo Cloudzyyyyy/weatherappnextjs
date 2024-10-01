@@ -3,7 +3,7 @@ import AirPollution from "./Components/AirPollution/AirPollution";
 import DailyForecast from "./Components/DailyForecast/DailyForecast";
 import FeelsLike from "./Components/FeelsLike/FeelsLike";
 import Humidity from "./Components/Humidity/Humidity";
-import Mapbox from "./Components/Mapbox/Mapbox";
+// import Mapbox from "./Components/Mapbox/Mapbox";
 import Navbar from "./Components/Navbar";
 import Population from "./Components/Population/Population";
 import Pressure from "./Components/Pressure/Pressure";
@@ -39,7 +39,7 @@ export default function Home() {
             <Pressure />
           </div>
           <div className="mapbox-con mt-4 flex gap-4">
-            <Mapbox />
+            {/* <Mapbox /> */}
             <div className="states flex flex-col gap-3 flex-1">
               <h2 className="flex items-center gap-2 font-medium">
                 Top Large Cities
@@ -65,7 +65,7 @@ export default function Home() {
           Made by
           <Image src={"/logo-white.svg"} alt="logo" width={20} height={20} />
           <a
-            href="https://xcloudzyy.vercel.app/"
+            href="https://xcloudzy.vercel.app/"
             target="_blank"
             className="text-green-300 font-bold"
           >
